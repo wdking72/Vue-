@@ -1,9 +1,18 @@
 {
   "Vue 3 核心源码": {
     "technology": "Vue 3 核心源码",
-    "currentStage": 1,
+    "currentStage": 2,
     "totalStages": 6,
-    "completedConcepts": ["Monorepo 结构", "三层架构", "平台无关 vs 平台相关", "入口包组装方式"],
+    "completedConcepts": [
+      "Monorepo 结构",
+      "三层架构",
+      "平台无关 vs 平台相关",
+      "入口包组装方式",
+      "reactive 核心原理",
+      "effect 核心原理",
+      "track 依赖收集",
+      "trigger 触发更新"
+    ],
     "projectPath": "D:/Vue核心源码学习",
     "lastSession": "2026-06-21"
   }
