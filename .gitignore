@@ -1,0 +1,5 @@
+# Vue 源码仓库（单独管理，不提交到这里）
+vue3-source/
+
+# Node
+node_modules/
