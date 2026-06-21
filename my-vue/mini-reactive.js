@@ -1,7 +1,8 @@
 let currentEffect = null // 当前正在执行的 effect 函数
 
-function effect(fn) {
+export function effect(fn, { scheduler } = {}) {
   currentEffect = fn
+  fn.scheduler = scheduler // 存储调度函数  
   fn()
   currentEffect = null // 执行完成后，将 currentEffect 重置为 null
 } 
@@ -24,7 +25,11 @@ function reactive(obj) {
       // 触发依赖更新
       if (depMap.has(key)) {
         depMap.get(key).forEach(fn => {
-          fn()
+          if (fn.scheduler) {
+            fn.scheduler() // 调用调度函数
+          } else {
+            fn()
+          }
         })
       }
       return true // 返回 true 表示设置成功
