@@ -13,9 +13,14 @@
       "track 依赖收集",
       "trigger 触发更新",
       "effect scheduler 机制",
-      "computed 缓存与惰性计算"
+      "computed 缓存与惰性计算",
+      "watch 基本原理",
+      "watch immediate 选项",
+      "watch deep 选项",
+      "traverse 递归遍历",
+      "reactive Proxy 缓存（WeakMap）"
     ],
     "projectPath": "D:/Vue核心源码学习",
-    "lastSession": "2026-06-21"
+    "lastSession": "2026-06-26"
   }
 }
