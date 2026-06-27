@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>测试 VNode 渲染</title>
+  <style>
+    .container {
+      border: 2px solid #42b883;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 8px;
+    }
+    h1 {
+      color: #42b883;
+    }
+    p {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h2>测试 VNode 渲染：</h2>
+  <div id="app"></div>
+
+  <script type="module">
+    import { h, render } from './my-vue/runtime-core（运行时核心）/Vnode.js'
+
+    // 测试1：单个元素
+    const vnode1 = h('div', { class: 'container' }, 'Hello World')
+
+    // 测试2：嵌套元素
+    const vnode2 = h('div', { class: 'container' }, [
+      h('h1', null, 'Hello Vue'),
+      h('p', null, '这是虚拟 DOM 渲染的')
+    ])
+
+    // 渲染到页面
+    const app = document.getElementById('app')
+
+    // 先渲染 vnode1
+    render(vnode1, app)
+
+    // 再渲染 vnode2
+    render(vnode2, app)
+
+    console.log('✅ 渲染完成！请查看页面')
+  </script>
+</body>
+</html>
