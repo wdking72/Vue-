@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>测试 patch 函数</title>
+  <style>
+    .box {
+      border: 2px solid #42b883;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 8px;
+    }
+    .red { border-color: red; }
+    button {
+      padding: 8px 16px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>测试 patch 函数：</h2>
+  <button id="btn1">1. 初次挂载 (div)</button>
+  <button id="btn2">2. 类型替换 (div → section)</button>
+  <button id="btn3">3. 再次替换 (section → article)</button>
+  <div id="app"></div>
+
+  <script type="module">
+    import { h, render } from '../my-vue/runtime-core（运行时核心）/Vnode.js'
+
+    const app = document.getElementById('app')
+
+    document.getElementById('btn1').onclick = () => {
+      render(
+        h('div', { class: 'box' }, '我是 div'),
+        app
+      )
+      console.log('✅ 初次挂载完成')
+    }
+
+    document.getElementById('btn2').onclick = () => {
+      render(
+        h('section', { class: 'box red' }, '我是 section，替换了 div'),
+        app
+      )
+      console.log('✅ div → section 完成')
+    }
+
+    document.getElementById('btn3').onclick = () => {
+      render(
+        h('article', { class: 'box' }, '我是 article，替换了 section'),
+        app
+      )
+      console.log('✅ section → article 完成')
+    }
+  </script>
+</body>
+</html>
