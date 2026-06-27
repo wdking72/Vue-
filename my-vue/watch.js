@@ -1,4 +1,4 @@
-import { effect } from "./mini-reactive.js";
+import { effect } from "./tools.js";
 export default function watch(source, callback, {immediate = false, deep = false} = {}) {
   let oldVal = update(source)
 
